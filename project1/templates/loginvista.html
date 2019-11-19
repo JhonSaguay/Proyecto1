@@ -1,0 +1,38 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+ <style>
+   body{
+     background:url('{{ url_for('static', filename='images/imagen.jpg') }}');
+   }
+ </style>
+  </head>
+  <body>
+
+<div class="container">
+    <div class="abs-center">
+      <form action="/login" class="border p-3 form" method="POST">
+        <h1>Login</h1>
+        <div class="contenedor">
+          <div class="input-contenedor">
+            <i class="fas fa-user icon"></i>
+            <input autocomplete="=off" type="text" placeholder="Nombre de Usuario" name="tbuser">
+          </div>
+          <div class="input-contenedor">
+            <i class="fas fa-key icon"></i>
+            <input type="password" placeholder="Password" name="tbpass">
+          </div>
+        <input type="submit" value="Login" class="button">
+
+        <p>Aun no tienes cuenta,que esperas? <a class="link" href="\register" > Registrate</a> </p>
+      </div>
+
+    </form>
+  </div>
+    </div>
+  </body>
+</html>

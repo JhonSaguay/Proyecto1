@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+
+    <style>
+      body{
+        background:url('{{ url_for('static', filename='images/imagen.jpg') }}');
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="page-header">
+
+         <a href="/logout" class="button">Logout</a>
+
+    </div>
+
+    <div class="contenedor">
+      <form class="border p-3" action="/searching" method="post">
+        <div class="input-contenedor">
+          <i class="fas fa-search icon"></i>
+          <input type="text" placeholder="What are you looking?" name="tblibro">
+        </div>
+
+
+        <input type="submit" value="SEARCH" class="button">
+      </form>
+    </div>
+
+
+
+    <div class="row m-0 w-100">
+      {%for book in books%}
+              <!-- a es para referenciar review-->
+
+        <div class="container card" style="width: 18rem">
+          <!-- Image cover from openlibrary -->
+          <img class="card-img-top" src="http://covers.openlibrary.org/b/isbn/{{book.isbn}}-M.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">{{book.title}}</h4>
+              <ul class="list-group list-group-flush">
+                <li class="card-text">{{book.author}}</li>
+                <li class="card-text">{{book.year}}</li>
+                <li class="card-text">{{book.isbn}}</li>
+              </ul>
+          </div>
+
+            <div class="card-footer">
+<!--<input type="button" name="" value="More..">-->
+              <a href="/review/{{book.isbn}}" class="button">More...</a>
+            </div>
+
+
+      </div>
+
+      {%endfor%}
+    </div>
+  </body>
+</html>
